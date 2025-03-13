@@ -1,32 +1,92 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern betűtípus */
+  
 }
 
 body {
   max-width: 800px;
-  margin: auto;
+  margin: 20px auto;
+  background-color: #f4f7f6; /* Világos háttérszín */
+  padding: 20px;
+  border-radius: 12px; /* Lekerekített sarkok */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Finom árnyék */
+  background-image: url(https://www.valaszonline.hu/wp-content/uploads/2019/09/erdo%CC%8B-VSZ.jpg)
 }
 
 .galeria {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+  background-image: url(https://mireltextil.hu/cdn/shop/files/45A_2024.jpg?v=1736963410&width=1296)
 }
 
 .galeria img,
 .nagykep img {
   width: 100%;
+  height: auto;
+  border-radius: 12px; /* Lekerekített sarkú képek */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Képek körüli árnyék */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galeria img:hover,
+.nagykep img:hover {
+  transform: scale(1.05); /* Kép nagyítása hover esetén */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Erősebb árnyék hoverre */
 }
 
 .nagykep {
   display: grid;
   grid-template-columns: 60px auto 60px;
-  border: 1px solid gray;
-  border-radius: 10px;
+  border: 1px solid #ddd; /* Finom, szürke keret */
+  border-radius: 12px; /* Lekerekített sarok */
+  overflow: hidden; /* Lekerekített sarok levágása */
+  background-color: white; /* Fehér háttér */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Finom árnyék */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nagykep:hover {
+  transform: translateY(-5px); /* Kép elmozdulása hoverre */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Erősebb árnyék */
+}
+
+button {
+  background-color: #34db95; /* Élénk zöld háttér */
+  color: white; /* Fehér szöveg */
+  border: 2px solid #34db95; /* Zöld színű keret */
+  font-size: 16px; /* Közepes betűméret */
+  border-radius: 50px; /* Kerekített gomb */
+  text-transform: uppercase; /* Nagybetűs szöveg */
+  font-weight: bold; /* Félkövér betűtípus */
+  cursor: pointer; /* Kéz ikon a kurzorhoz */
+  transition: all 0.3s ease; /* Simuló animációk */
+  outline: none; /* Fókusz körvonal eltüntetése */
+}
+
+button:hover {
+  background-color: #2980b9; /* Sötétebb kék árnyalat hover esetén */
+  border-color: #2980b9; /* A keret is sötétedni fog */
+  transform: scale(1.05); /* A gomb kicsit megnövekszik */
+}
+
+button:active {
+  background-color: #1f6d9e; /* Még sötétebb kék kattintáskor */
+  transform: scale(0.98); /* A gomb kissé összenyomódik kattintáskor */
+}
+
+@media screen and (max-width: 768px) {
+  .galeria {
+    grid-template-columns: repeat(2, 1fr); /* Két oszlop mobil nézetben */
+  }
 }
 
 @media screen and (max-width: 500px) {
   .galeria {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Egy oszlop mobil nézetben */
   }
 }
